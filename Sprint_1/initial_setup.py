@@ -33,8 +33,9 @@ def check_valid_trading_hours(time_zone):
     return market_is_open
 
 #testing
-time_zone = get_time_zone()
-while check_valid_trading_hours(time_zone):
-    stock = Stock_info(input("What ticker would you like to get the ask price for? "))
-    print(stock.get_ask_price())
-print("The market is closed.")
+def test():
+    time_zone = get_time_zone()
+    while check_valid_trading_hours(time_zone):
+        stock = Stock_info(input("What ticker would you like to get the ask price for? "))
+        print(stock.get_ask_price())
+    print("The market is closed.")
