@@ -74,6 +74,7 @@ def stock_detail_view(request):
     }
     return render(request, "stock/detail.html", context)
 
+# Functions that are used in the views
 # returns the current ask price of the ticker that is given
 def get_ask_price(ticker):
     return yf.Ticker(ticker).info['ask']
