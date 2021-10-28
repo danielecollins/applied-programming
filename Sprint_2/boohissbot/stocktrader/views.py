@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from numpy import number
 import yfinance as yf
 import time
 import datetime as dt
@@ -42,14 +43,15 @@ def save_stock_view(request):
     return render(request, "save_stock.html", my_context)
 
 def stock_detail_view(request):
-    obj = Stock.objects.get(id=1)
-    my_context = {
-        'ticker': obj.ticker,
-        'ask': obj.ask,
-        'bid': obj.bid,
-        'owned': obj.owned,
+    stocks = []
+
+    for index in range(Stock.objects.count()):
+        stocks.append(Stock.objects.get(id=index+1))
+
+    context = {
+        "stocks": stocks,
     }
-    return render(request, "stock/detail.html", my_context)
+    return render(request, "stock/detail.html", context)
 
 # returns the current ask price of the ticker that is given
 def get_ask_price(ticker):

@@ -2,18 +2,21 @@
 
 {% block content %}
     <h1>Stock Details</h1>
-    <h2>{{ ticker }}</h2>
-    <p>
-        Ask: {{ ask }}
-        <br>
-        Bid: {{ bid }}
-        <br>
-        {% if owned %}
-            You own this stock.
-        {% elif not owned%}
-            You do not own this stock.
-        {% else %}
-            We're not sure if you own this stock.
-        {% endif %}
-    </p>
+    {% for stock in stocks %}
+        <h2>{{ stock.ticker }}</h2>
+        <p>
+            Ask: {{ stock.ask }}
+            <br>
+            Bid: {{ stock.bid }}
+            <br>
+            {% if stock.owned %}
+                You own this stock.
+            {% elif not stock.owned %}
+                You do not own this stock.
+            {% else %}
+                We're not sure if you own this stock.
+            {% endif %}
+        </p>
+    {% endfor %}
+    
 {% endblock content %}
