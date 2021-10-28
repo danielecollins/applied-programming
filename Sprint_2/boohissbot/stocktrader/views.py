@@ -3,7 +3,7 @@ import yfinance as yf
 import time
 import datetime as dt
 from .models import Stock
-from .forms import StockForm, RawStockForm
+from .forms import StockForm
 
 # Create your views here.
 # This view displays the time zone search
