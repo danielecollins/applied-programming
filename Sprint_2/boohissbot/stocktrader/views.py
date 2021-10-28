@@ -1,9 +1,24 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
-# Create your views here.
 import yfinance as yf
 import time
 import datetime as dt
+
+# Create your views here.
+def home_view(request, *args, **kwargs):
+    my_context = {
+        "my_text": "This is about us",
+        "my_number": 123,
+        "my_list": [1, 2, 3, 4, 5]
+    }
+    return render(request, "home.html", my_context)
+
+def stock_info_view(request, *args, **kwargs):
+    my_context = {
+        "time_zone": request.GET.get("time_zone"),
+    }
+    return render(request, "stock_info.html", my_context)
 
 class Stock_info:
     def __init__(self, ticker):
@@ -39,5 +54,5 @@ def test():
     time_zone = get_time_zone()
     while check_valid_trading_hours(time_zone):
         stock = Stock_info(input("What ticker would you like to get the ask price for? "))
-        print(stock.get_ask_price())
-    print("The market is closed.")
+        return stock.get_ask_price()
+    return "The market is closed."

@@ -1,0 +1,9 @@
+{% extends 'base.html' %} <!-- This inherits from base.html -->
+
+{% block content %} <!-- This allows us to insert this into the inherited code, 'content' is the block variable that this html will go into -->
+    <h1>Stock Trader</h1>
+    <p>What is your time zone?</p>
+    <form action="{% url 'stock_info' %}" method="get">
+        <input name="time_zone" type="text" placeholder="ET, CT, MT, or PT">
+    </form>
+{% endblock content %}
