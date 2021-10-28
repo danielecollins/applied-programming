@@ -2,7 +2,22 @@
 
 {% block content %}
     <h1>Stock Info Page</h1>
-    <p>
-        {{ time_zone }}
-    </p>
+    {% if search %}
+        {% if market_is_open %}
+            <p>Enter a ticker symbol to get the ask price for.</p>
+            <form action="{% url 'stock_info' %}" method="get">
+                <input name="ticker" type="text" placeholder="Ticker Symbol">
+            </form>
+        {% elif not market_is_open %}
+            <p>The market is closed or you entered an invalid time zone. The ticker search is only available during market hours.</p>
+        {% else %}
+            <p>Something is broken.</p>
+        {% endif %}
+    {% elif not search %}
+        <p>
+            Ticker: {{ ticker }}
+            <br>
+            Ask Price: {{ ask_price }}
+        </p>
+    {% endif %}
 {% endblock content %}
