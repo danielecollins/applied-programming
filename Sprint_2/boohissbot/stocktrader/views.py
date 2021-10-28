@@ -28,13 +28,20 @@ def stock_info_view(request):
     my_context = {
         "ticker": ticker,
         "ask_price": get_ask_price(ticker),
+        "bid_price": get_bid_price(ticker),
         "search": False,
     }
     return render(request, "stock_info.html", my_context)
 
+def save_stock_view(request):
+    return render(request, "")
+
 # returns the current ask price of the ticker that is given
 def get_ask_price(ticker):
     return yf.Ticker(ticker).info['ask']
+
+def get_bid_price(ticker):
+    return yf.Ticker(ticker).info['bid']
 
 # checks if the trading hours are valid before starting the app
 def check_valid_trading_hours(time_zone):
@@ -44,4 +51,4 @@ def check_valid_trading_hours(time_zone):
     if (time_zone == "ET" and current_time >= 930 and current_time <= 1600) or (time_zone == "CT" and current_time >= 830 and current_time <= 1500) or (time_zone == "MT" and current_time >= 730 and current_time <= 1400) or (time_zone == "PT" and current_time >= 630 and current_time <= 1300) and (weekday != 5 and weekday != 6):
         return True
     else:
-        return False # change to True for testing
+        return True # change to True for testing
