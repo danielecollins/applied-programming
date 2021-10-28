@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from stocktrader.views import home_view, stock_search_view, stock_info_view
+from stocktrader.views import home_view, stock_search_view, stock_info_view, save_stock_view, stock_detail_view
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('stock-search/', stock_search_view, name='stock_search'),
     path('stock-info/', stock_info_view, name='stock_info'),
+    path('save-stock/', save_stock_view, name='save_stock'),
+    path('stock-details/', stock_detail_view, name='stock_details'),
     path('admin/', admin.site.urls),
 ]

@@ -2,6 +2,7 @@ from django.shortcuts import render
 import yfinance as yf
 import time
 import datetime as dt
+from .models import Stock
 
 # Create your views here.
 # This view displays the time zone search
@@ -33,8 +34,22 @@ def stock_info_view(request):
     }
     return render(request, "stock_info.html", my_context)
 
+# This view is for the save stock page
 def save_stock_view(request):
-    return render(request, "")
+    my_context = {
+
+    }
+    return render(request, "save_stock.html", my_context)
+
+def stock_detail_view(request):
+    obj = Stock.objects.get(id=1)
+    my_context = {
+        'ticker': obj.ticker,
+        'ask': obj.ask,
+        'bid': obj.bid,
+        'owned': obj.owned,
+    }
+    return render(request, "stock/detail.html", my_context)
 
 # returns the current ask price of the ticker that is given
 def get_ask_price(ticker):

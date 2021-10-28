@@ -21,8 +21,8 @@
             <br>
             Bid Price: {{ bid_price }}
         </p>
-        <form action>
-            <button></button>
+        <form action="{% url 'save_stock' %}">
+            <button type="submit" name="save_stock">Save Stock Info</button>
         <form>
     {% endif %}
 {% endblock content %}
