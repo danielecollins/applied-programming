@@ -4,6 +4,12 @@
     <h1>Stock Trader</h1>
     <p>What is your time zone?</p>
     <form action="{% url 'stock_search' %}" method="get">
-        <input name="time_zone" type="text" placeholder="ET, CT, MT, or PT">
+        <select name="time_zone">
+            <option value="ET">Eastern Time</option>
+            <option value="CT">Central Time</option>
+            <option value="MT">Mountain Time</option>
+            <option value="PT">Pacific Time</option>
+        </select>
+        <input type='submit' value='Continue'/>
     </form>
 {% endblock content %}

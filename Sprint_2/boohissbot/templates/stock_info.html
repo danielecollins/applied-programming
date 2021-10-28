@@ -9,7 +9,7 @@
                 <input name="ticker" type="text" placeholder="Ticker Symbol">
             </form>
         {% elif not market_is_open %}
-            <p>The market is closed or you entered an invalid time zone. The ticker search is only available during market hours.</p>
+            <p>The market is closed. The ticker search is only available during market hours.</p>
         {% else %}
             <p>Something is broken.</p>
         {% endif %}
@@ -21,8 +21,22 @@
             <br>
             Bid Price: {{ bid_price }}
         </p>
-        <form action="{% url 'save_stock' %}">
-            <button type="submit" name="save_stock">Save Stock Info</button>
+        <form method='POST'> {% csrf_token %}
+            Ticker:
+            <select name='ticker'>
+                <option value={{ ticker }}>{{ ticker }}</option>
+            </select>
+            Ask:
+            <select name='ask_price'>
+                <option value={{ ask_price }}>{{ ask_price }}</option>
+            </select>
+            Bid:
+            <select name='bid_price'>
+                <option value={{ bid_price }}>{{ bid_price }}</option>
+            </select>
+            I own the stock:
+            <input type='checkbox' name='owned' value='True'>
+            <input type='submit' value='Save Stock'/>
         <form>
     {% endif %}
 {% endblock content %}
