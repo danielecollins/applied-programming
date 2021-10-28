@@ -90,4 +90,4 @@ def check_valid_trading_hours(time_zone):
     if (time_zone == "ET" and current_time >= 930 and current_time <= 1600) or (time_zone == "CT" and current_time >= 830 and current_time <= 1500) or (time_zone == "MT" and current_time >= 730 and current_time <= 1400) or (time_zone == "PT" and current_time >= 630 and current_time <= 1300) and (weekday != 5 and weekday != 6):
         return True
     else:
-        return True # change to True for testing
+        return False # change to True for testing
