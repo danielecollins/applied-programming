@@ -1,3 +1,4 @@
+from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 import yfinance as yf
 import time
@@ -30,15 +31,21 @@ def stock_info_view(request):
     # This will update or add tickers if you want
     if request.method == "POST":
         new_ticker = request.POST.get('ticker')
-        if Stock.objects.filter(ticker=new_ticker).exists():
-            Stock.objects.filter(ticker=new_ticker).update(ask=request.POST.get("ask_price"))
-            Stock.objects.filter(ticker=new_ticker).update(bid=request.POST.get("bid_price"))
-            Stock.objects.filter(ticker=new_ticker).update(owned=request.POST.get("owned"))
+        new_ask = request.POST.get('ask_price')
+        new_bid = request.POST.get('bid_price')
+
+        if request.POST.get('owned') is None:
+            new_owned = False
         else:
-            Stock.objects.create(ticker=new_ticker)
-            Stock.objects.filter(ticker=new_ticker).update(ask=request.POST.get("ask_price"))
-            Stock.objects.filter(ticker=new_ticker).update(bid=request.POST.get("bid_price"))
-            Stock.objects.filter(ticker=new_ticker).update(owned=request.POST.get("owned"))
+            new_owned = request.POST.get('owned')
+        
+        if Stock.objects.filter(ticker=new_ticker).exists():
+            Stock.objects.filter(ticker=new_ticker).update(ask=new_ask)
+            Stock.objects.filter(ticker=new_ticker).update(bid=new_bid)
+            Stock.objects.filter(ticker=new_ticker).update(owned=new_owned)
+        else:
+            s = Stock(ticker=new_ticker, ask=new_ask, bid=new_bid, owned=new_owned)
+            s.save()
 
     context = {
         "ticker": ticker,
