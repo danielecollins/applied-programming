@@ -1,10 +1,10 @@
 # Overview
 
-{Important!  Do not say in this section that this is college assignment.  Talk about what you are trying to accomplish as a software engineer to further your learning.}
+I used this project as an oppertunity to learn more about relational databases and specifically how they work in the Django web framework
 
-{Provide a description the software that you wrote and how it integrates with a SQL Relational Database. Describe how to use your program.}
+I wrote a Django web app previously and I wanted to add a SQLite database in order to store stock data. This work will lay a foundation for future work on the app.
 
-{Describe your purpose for writing this software.}
+I wrote this software in order to learn how to work with relational database and to make progress on my stock trading bot.
 
 {Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running, a walkthrough of the code, and a view of how created the Relational Database.}
 
@@ -12,25 +12,23 @@
 
 # Relational Database
 
-{Describe the relational database you are using.}
+I am useing a SQLite database in Django.
 
-{Describe the structure (tables) of the relational database that you created.}
+I only have one database table a the moment and it's a table to hold stocks and thier ask and bid prices. The table also includes a field for whether or not the user owns the stock.
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
+I used VS Code and Github to edit and manage my code.
 
-{Describe the programming language that you used and any libraries.}
+I also used Django, Python, SQLite, HTML, and the yfinance library.
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+* [Django Documentation](https://docs.djangoproject.com/en/3.2/)
+* [Python Django Web Framework - Full Course for Beginners](https://www.youtube.com/watch?v=F5mRW0jo-U4&t=2018s)
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-* Item 1
-* Item 2
-* Item 3
+* Add data analysis tools
+* Add styling to the web app
+* Create more database tables to hold different information
