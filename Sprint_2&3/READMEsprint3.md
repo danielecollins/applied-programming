@@ -6,9 +6,7 @@ I wrote a Django web app previously and I wanted to add a SQLite database in ord
 
 I wrote this software in order to learn how to work with relational database and to make progress on my stock trading bot.
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running, a walkthrough of the code, and a view of how created the Relational Database.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/APzYxApjwWs)
 
 # Relational Database
 
