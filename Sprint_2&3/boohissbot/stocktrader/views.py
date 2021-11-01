@@ -1,4 +1,3 @@
-from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 import yfinance as yf
 import time
