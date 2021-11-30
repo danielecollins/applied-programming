@@ -1,0 +1,21 @@
+Symbol,Description
+AST,Asissts
+2GM,2 point goals made
+3GM,3 point goals made
+FG Miss,Field goals missed
+FT Made,Free throws made
+FT Miss,Free throws missed
+REB,Rebounds
+BOX,Box out on a ball going out of bounds
+BLK,Blocks
+STL,Steals
+CHT,Charge taken
+TOV,Turnovers
+TECF,Technical foul
+OFF,Offensive foul
+FTA,Free throw attempts
+FGA,Field goal attempts
+FGM,Total field goals made
+PT,Playing time (minutes)
+Rating,Overall rating
+Rank,Team rank based on your overall ranking
