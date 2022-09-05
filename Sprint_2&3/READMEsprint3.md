@@ -1,6 +1,6 @@
 # Overview
 
-I used this project as an oppertunity to learn more about relational databases and specifically how they work in the Django web framework
+I used this project as an opportunity to learn more about relational databases and specifically how they work in the Django web framework
 
 I wrote a Django web app previously and I wanted to add a SQLite database in order to store stock data. This work will lay a foundation for future work on the app.
 
